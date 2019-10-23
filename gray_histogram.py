@@ -25,5 +25,7 @@ count =  count / total  # ¼ÆËã¸ÅÂÊ
 # »­Í¼
 x = np.linspace(0, 255, 256)
 y = count
+y = count
+y = count
 plt.bar(x, y, 0.9, alpha = 1, color = "b")
 plt.show()
