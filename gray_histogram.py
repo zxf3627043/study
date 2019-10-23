@@ -8,21 +8,22 @@ img = cv2.imread('ori1.jpg', 1)
 imgInfo = img.shape
 height = imgInfo[0]
 width = imgInfo[1]
-
+width = imgInfo[1]
+width = imgInfo[1]
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-count = np.zeros(256, np.float) # ÒòÎªÊÇ¸ÅÂÊ, ÓĞ¿ÉÄÜÊÇ¸¡µãÊı
+count = np.zeros(256, np.float) # å› ä¸ºæ˜¯æ¦‚ç‡, æœ‰å¯èƒ½æ˜¯æµ®ç‚¹æ•°
 
-# Í³¼ÆÏñËØ¸öÊı²¢¼ÆËã¸ÅÂÊ
+# ç»Ÿè®¡åƒç´ ä¸ªæ•°å¹¶è®¡ç®—æ¦‚ç‡
 for i in range(height):
     for j in range(width):
         pixel = gray[i, j]
         index = int(pixel)
         count[index] = count[index] + 1
 
-total = height * width # ×ÜÏñËØ¸öÊı
-count =  count / total  # ¼ÆËã¸ÅÂÊ
+total = height * width # æ€»åƒç´ ä¸ªæ•°
+count =  count / total  # è®¡ç®—æ¦‚ç‡
 
-# »­Í¼
+# ç”»å›¾
 x = np.linspace(0, 255, 256)
 y = count
 y = count
