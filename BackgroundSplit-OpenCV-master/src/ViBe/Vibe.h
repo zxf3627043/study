@@ -28,19 +28,19 @@
 using namespace cv;
 using namespace std;
 
-// 每个像素点的样本个数默认�?
+// æ¯ä¸ªåƒç´ ç‚¹çš„æ ·æœ¬ä¸ªæ•°é»˜è®¤å€?
 // the Default Number of pixel's samples
-#define DEFAULT_NUM_SAMPLES  20
+#define DEFAULT_NUM_SAMPLES  19
 
-// #min指数默认�?
+// #minæŒ‡æ•°é»˜è®¤å€?
 // the Default Match Number of make pixel as Background
 #define DEFAULT_MIN_MATCHES  4
 
-// Sqthere半径默认�?
+// SqthereåŠå¾„é»˜è®¤å€?
 // the Default Radius of pixel value
-#define DEFAULT_RADIUS 4
+#define DEFAULT_RADIUS 5
 
-// 子采样概率默认�?
+// å­é‡‡æ ·æ¦‚çŽ‡é»˜è®¤å€?
 // the Default the probability of random sample
 #define DEFAULT_RANDOM_SAMPLE 16
 
@@ -53,56 +53,56 @@ public:
          int rand_sam = DEFAULT_RANDOM_SAMPLE);
     ~ViBe(void);
 
-    // 背景模型初始�?
+    // èƒŒæ™¯æ¨¡åž‹åˆå§‹åŒ?
     // Init Background Model.
     void init(Mat img);
 
-    // 处理第一帧图�?
+    // å¤„ç†ç¬¬ä¸€å¸§å›¾åƒ?
     // Process First Frame of Video Query
     void ProcessFirstFrame(Mat img);
 
-    // 运行 ViBe 算法，提取前景区域并更新背景模型样本�?
+    // è¿è¡Œ ViBe ç®—æ³•ï¼Œæå–å‰æ™¯åŒºåŸŸå¹¶æ›´æ–°èƒŒæ™¯æ¨¡åž‹æ ·æœ¬åº?
     // Run the ViBe Algorithm: Extract Foreground Areas & Update Background Model Sample Library.
     void Run(Mat img);
 
-    // 获取前景模型二值图�?
+    // èŽ·å–å‰æ™¯æ¨¡åž‹äºŒå€¼å›¾åƒ?
     // get Foreground Model Binary Image.
     Mat getFGModel();
 
-    // 删除样本�?
+    // åˆ é™¤æ ·æœ¬åº?
     // Delete Sample Library.
     void deleteSamples();
 
-    // x的邻居点
+    // xçš„é‚»å±…ç‚¹
     // x's neighborhood points
     int c_xoff[9];
 
-    // y的邻居点
+    // yçš„é‚»å±…ç‚¹
     // y's neighborhood points
     int c_yoff[9];
 
 private:
-    // 样本�?
+    // æ ·æœ¬åº?
     // Sample Library, size = img.rows * img.cols *  DEFAULT_NUM_SAMPLES
     unsigned char ***samples;
 
-    // 前景模型二值图�?
+    // å‰æ™¯æ¨¡åž‹äºŒå€¼å›¾åƒ?
     // Foreground Model Binary Image
     Mat FGModel;
 
-    // 每个像素点的样本个数
+    // æ¯ä¸ªåƒç´ ç‚¹çš„æ ·æœ¬ä¸ªæ•°
     // Number of pixel's samples
     int num_samples;
 
-    // #min指数
+    // #minæŒ‡æ•°
     // Match Number of make pixel as Background
     int num_min_matches;
 
-    // Sqthere半径
+    // SqthereåŠå¾„
     // Radius of pixel value
     int radius;
 
-    // 子采样概�?
+    // å­é‡‡æ ·æ¦‚çŽ?
     // the probability of random sample
     int random_sample;
 };
