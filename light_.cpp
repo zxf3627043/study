@@ -19,6 +19,11 @@ for (int i = 0; i < src.rows; i++) {
 				double alpha_g = G / (R + G + B);
 				double alpha_b = B / (R + G + B);
  
+				 
+				double alpha_r = R / (R + G + B);
+				double alpha_g = G / (R + G + B);
+				double alpha_b = B / (R + G + B);
+				
 				double alpha = Math.max(Math.max(alpha_r, alpha_g), alpha_b);
 				double MaxC = Math.max(Math.max(R, G), B);
 				double minalpha = Math.min(Math.min(alpha_r, alpha_g), alpha_b);
